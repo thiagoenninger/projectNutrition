@@ -1,34 +1,39 @@
 let titulo = document.querySelector(".titulo");
-titulo.textContent = "Health & Nutrition"
+titulo.textContent = "Health & Nutrition";
 
 // Cálculo IMC
-let paciente = document.querySelector("#primeiro-paciente");
+let pacientes = document.querySelectorAll(".paciente");
 
-let tdPeso = paciente.querySelector(".info-peso")
-let peso = tdPeso.textContent;
+for (let i = 0; i < pacientes.length; i++) {
 
+  let paciente = pacientes[i];
+  let tdPeso = paciente.querySelector(".info-peso");
+  let peso = tdPeso.textContent;
 
-let tdAltura = paciente.querySelector(".info-altura");
-let altura = tdAltura.textContent;
+  let tdAltura = paciente.querySelector(".info-altura");
+  let altura = tdAltura.textContent;
 
-let tdImc = paciente.querySelector(".info-imc");
+  let tdImc = paciente.querySelector(".info-imc");
 
-let pesoValido = true;
-let alturaValida = true;
+  let pesoValido = true;
+  let alturaValida = true;
 
-if (peso <= 0 || peso >= 400) {
+  if (peso <= 0 || peso >= 400) {
     console.log("Peso inválido");
-    tdImc.textContent = "Peso inválido";
     pesoValido = false;
-}
+    tdImc.textContent = "Peso inválido";
+    paciente.classList.add("paciente-invalido");
+  }
 
-if (altura <= 0 || altura >= 3) {
-  console.log("Altura inválida")
-  tdImc.textContent = "Altura inválida";
-  alturaValida = false;
-}
+  if (altura <= 0 || altura >= 3) {
+    console.log("Altura inválida");
+    alturaValida = false;
+    tdImc.textContent = "Altura inválida";
+    paciente.classList.add("paciente-invalido");
+  }
 
-if (pesoValido && alturaValida) {
-  let imc = peso / (altura * altura);
-  tdImc.textContent = imc;
+  if (pesoValido && alturaValida) {
+    let imc = peso / (altura * altura);
+    tdImc.textContent = imc.toFixed(2);
+  }
 }
