@@ -125,8 +125,14 @@ button[disabled=disabled], button:disabled {
 
 }
 
+
+#form-adiciona #nomePaciente {
+		width: 100%;
+}
+
+
 .adicionar-paciente{
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .campo-invalido{
