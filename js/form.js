@@ -5,6 +5,9 @@ botaoAdicionar.addEventListener("click", function (event) {
   let form = document.querySelector("#form-adiciona");
   let paciente = obterPacienteForm(form);
   let pacienteTr = montaTr(paciente);
+
+  
+
   let tabela = document.querySelector("#tabela-pacientes");
   tabela.appendChild(pacienteTr);
   form.reset();
@@ -40,4 +43,8 @@ function montaTd(dado, classe){
   td.classList.add(classe);
 
   return td;
+}
+
+function validaPaciente(paciente) {
+  
 }
